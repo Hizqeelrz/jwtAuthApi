@@ -3,7 +3,7 @@ defmodule JwtAuthApi.Guardian.AuthPipeline do
   module: JwtAuthApi.Guardian,
   error_handler: JwtAuthApi.AuthErrorHandler
 
-  plug Guardian.Plug.VerifyHeader, realm: "Beare"
+  plug Guardian.Plug.VerifyHeader, realm: "Bearer"
   plug Guardian.Plug.EnsureAuthenticated
   plug Guardian.Plug.LoadResource
 end

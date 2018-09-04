@@ -107,7 +107,7 @@ defmodule JwtAuthApi.Accounts do
 
   # Context Authentication Fucntions
 
-  def token_sign_in(email,password) do
+  def token_sign_in(email, password) do
     case email_password_auth(email, password) do
       {:ok, user} ->
         Guardian.encode_and_sign(user)

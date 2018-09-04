@@ -2,7 +2,7 @@ defmodule JwtAuthApiWeb.Router do
   use JwtAuthApiWeb, :router
 
   alias JwtAuthApi.Guardian
-  
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -40,6 +40,6 @@ defmodule JwtAuthApiWeb.Router do
   scope "/api/v1", JwtAuthApiWeb do
     pipe_through [:api, :jwt_authenticated]
 
-    get "/my_user", USerController, :show
+    get "/my_user", UserController, :show
   end
 end
