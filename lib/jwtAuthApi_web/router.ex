@@ -25,5 +25,9 @@ defmodule JwtAuthApiWeb.Router do
 
     resources "/users", UserController, only: [:create, :show]
 
+    # post for sign_up
+
+    post "/sign_up", UserController, :create
+
   end
 end

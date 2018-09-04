@@ -1,12 +1,12 @@
 defmodule JwtAuthApi.Guardian do
   use Guardian, otp_app: :jwtAuthApi
 
-  def submit_for_token(user, _claims) do
+  def subject_for_token(user, _claims) do
     sub = to_string(user.id)
     {:ok, sub}
   end
 
-  def submit_for_token(_, _) do
+  def subject_for_token(_, _) do
     {:error, :reason_for_error}
   end
 
