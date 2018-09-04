@@ -1,9 +1,9 @@
 defmodule JwtAuthApi.Guardian.AuthPipeline do
-  use Guardian, otp_app: :jwtAuthApi,
+  use Guardian.Plug.Pipeline, otp_app: :JwtAuthApi,
   module: JwtAuthApi.Guardian,
-  error_handler: AuthErrorHandler
+  error_handler: JwtAuthApi.AuthErrorHandler
 
-  plug Guardian.Pug.VerifyHeader, realm: "Beare"
+  plug Guardian.Plug.VerifyHeader, realm: "Beare"
   plug Guardian.Plug.EnsureAuthenticated
   plug Guardian.Plug.LoadResource
 end
