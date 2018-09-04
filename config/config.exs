@@ -31,3 +31,7 @@ config :ecto, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :jwtAuthApi, JwtAuthApi.Guardian,
+       issuer: "jwtAuthApi",
+       secret_key: "otYbdX+GxFHwHU0A+8rE4i4ugoFO04IrNaROG/no1FprgEyMAGjobO1BHH0rODsa"
