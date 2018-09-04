@@ -13,6 +13,10 @@ defmodule JwtAuthApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :jwt_authenticated do
+    plug Guardian.AuthPipeline
+  end
+
   scope "/", JwtAuthApiWeb do
     pipe_through :browser # Use the default browser stack
 
@@ -29,6 +33,11 @@ defmodule JwtAuthApiWeb.Router do
 
     post "/sign_up", UserController, :create
     post "/sign_in", UserController, :sign_in
+  end
 
+  def "/api/v1", JwtAuthApiWeb do
+    pipe_through [:api, :jwt_authenticated]
+
+    get "/my_user", USerController, :show
   end
 end
