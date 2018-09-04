@@ -28,6 +28,7 @@ defmodule JwtAuthApiWeb.Router do
     # post for sign_up
 
     post "/sign_up", UserController, :create
+    post "/sign_in", UserController, :sign_in
 
   end
 end
