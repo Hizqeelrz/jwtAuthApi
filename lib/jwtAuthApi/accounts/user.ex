@@ -36,7 +36,7 @@ defmodule JwtAuthApi.Accounts.User do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
         put_change(changeset, :password_hash, hashpwsalt(password))
       _ ->
-        changeset0
+        changeset
     end
   end
 end
